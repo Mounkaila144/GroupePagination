@@ -16,8 +16,8 @@ class GroupsItems
         $this->nb_groupe = $nb_groupe;
         $this->nb_pages = $nb_pages;
         $this->quotient=intdiv($this->nb_pages, $this->nb_groupe);
-        if (isset($_GET['min'], $_GET['max']) && !empty($_GET['min']) && !empty($_GET['max'])) {
-                $this->currentGroupe = [(int)strip_tags($_GET['min']),(int)strip_tags($_GET['max'])];
+        if (isset($_GET['pagemin'], $_GET['pagemax']) && !empty($_GET['pagemin']) && !empty($_GET['pagemax'])) {
+                $this->currentGroupe = [(int)strip_tags($_GET['pagemin']),(int)strip_tags($_GET['pagemax'])];
         } else {
             $this->currentGroupe = [1,$this->quotient];
         }
@@ -58,9 +58,7 @@ class GroupsItems
 
     public function getCurentGroupe(): ?array
     {
-        if ($this->currentGroupe[0]<=0 or $this->currentGroupe[1]>=$this->nb_pages+1){
-        throw new Exception("Le groupe n'exist pas");
-    }else
+
             return $this->currentGroupe;
     }
 }
