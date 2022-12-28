@@ -19,9 +19,9 @@ $Pagination = new Pagination();
       $Groupe= new GroupsItems($groupe,$Pagination->getTotalPage());
   }
   else{
-      $Groupe= new GroupsItems(1,$Pagination->getTotalPage());
+      $groupe=1;
+      $Groupe= new GroupsItems($groupe,$Pagination->getTotalPage());
   }
-
 
 
 
