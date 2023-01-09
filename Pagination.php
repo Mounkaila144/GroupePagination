@@ -89,6 +89,15 @@ class Pagination
         }
     }
 
+    public function setPage(int $page)
+    {
+        if ($this->currentPage < 0 or $this->currentPage > $this->getTotalPageByGroupe()) {
+            throw new Exception("LA page n'exist pas");
+        } else {
+            return $this->currentPage=$page;
+        }
+    }
+
     public function getTotalPageByGroupe()
     {
         //Nombre total de Leads en fonction de min et max

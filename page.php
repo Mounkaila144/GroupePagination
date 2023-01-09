@@ -32,11 +32,11 @@
             <nav>
                 <ul class="pagination">
                     <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
-                    <li class="page-item <?= ($Pagination->getPage()== 1) ? "disabled" : "" ?>">
+                    <li  class="page-item <?= ($Pagination->getPage()== 1) ? "disabled" : "" ?>">
                         <a href="?page=<?= $Pagination->getPreview() ?>&pagemin=<?= $Pagination->getMin() ?>&pagemax=<?= $Pagination->getMax() ?>&groupe=<?= $groupe ?>" class="page-link">Précédente</a>
                     </li>
                     <?php for($page = 1; $page <= $Pagination->getTotalPageByGroupe(); $page++): ?>
-                    <?php if (fmod($page+($Pagination->getMin()-1),100)==0){ ?>
+                    <?php if (fmod($page+($Pagination->getMin()-1),10)==0){ ?>
                         <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                         <li class="page-item <?= ($Pagination->getPage()== $page) ? "active" : "" ?>">
                             <a href="?page=<?= $page ?>&pagemin=<?= $Pagination->getMin() ?>&pagemax=<?= $Pagination->getMax() ?>&groupe=<?= $groupe ?>" class="page-link"><?= $page+($Pagination->getMin()-1) ?></a>

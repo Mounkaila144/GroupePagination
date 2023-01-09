@@ -10,6 +10,7 @@ use App\GroupsItems;
 
 $Lead=new Lead();
 $Pagination = new Pagination();
+$Pagination->setPage(5);
   if (isset($_POST['groupe'])) {
 
       $groupe = (int)strip_tags($_POST['groupe']);
